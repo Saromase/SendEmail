@@ -1,25 +1,24 @@
 <?php
 
-function sendMail(){
-    // Plusieurs destinataires
-     $to  = 'educlos@simplon.co';
-     $name = 'Erwann Duclos';
+function sendMail($name, $to, $date, $id){
+    // Sujet
+    $subject = 'Nouvelle demande de Rendez-vous';
+    // message
+    $message = 'Bonjour';
+    $message .= 'Une demande de RDV est faite pour le '. $date;
+    $message .= 'Veuillez cliquer sur ce liens :';
+    $message .= "<a href='modif.php?user='. $id .'>Liens de modification</a>";
+    $message .= "Bonne journée";
+    // Pour envoyer un mail HTML, l'en-tête Content-type doit être défini 
+    $headers  = 'MIME-Version: 1.0' . "\r\n";
+    $headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
 
-     // Sujet
-     $subject = 'Bonjour';
+    // En-têtes additionnels
+    $headers .= 'To: ' . $name.' <'. $to .'>'. "\r\n";
+    $headers .= 'From: Pluggin Wordpress <Pluggin@Wordpress.com>' . "\r\n";
 
-     // message
-    $message = '';
-     // Pour envoyer un mail HTML, l'en-tête Content-type doit être défini 
-     $headers  = 'MIME-Version: 1.0' . "\r\n";
-     $headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
-
-     // En-têtes additionnels
-     $headers .= 'To: ' . $name.' <'. $to .'>'. "\r\n";
-     $headers .= 'From: ' . $name . ' <'. $to .'>' . "\r\n";
-
-     // Envoi
-     mail($to, $subject, $message, $headers);
+    // Envoi
+    mail($to, $subject, $message, $headers);
 }
 
 function connectBDD(){
@@ -65,6 +64,13 @@ function updateBDD($id, $name, $firstname, $mail, $date, $animal, $nameAnimal, $
 function selectRDV($id){
     $bdd = connectBDD();
     $request = $bdd->query("SELECT * FROM rendez_vous WHERE id = $id");
+    $data = $request->fetch();
+    return $data;
+}
+
+function selectID($name, $date,$nameAnimal){
+    $bdd = connectBDD();
+    $request = $bdd->query("SELECT * FROM rendez_vous WHERE id = $name AND date = $date AND name_animal = $nameAnimal");
     $data = $request->fetch();
     return $data;
 }

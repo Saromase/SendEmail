@@ -1,7 +1,7 @@
 <?php 
 include 'function.php';
-$user = $_GET['user'];
-$data = selectRDV($user);
+$userID = $_GET['user'];
+$data = selectRDV($userID);
 ?>
 
 <!DOCTYPE html>
@@ -15,7 +15,7 @@ $data = selectRDV($user);
 
 <body>
     <h1>Modifier le rendez-vous</h1>
-    <form action="update.php" method="post">
+    <form action='update.php?user=<?php echo $userID;?>' method="post">
         <?php
         echo "<p> Nom : <input type='text' name='name' value='" .  $data['name'] . "' required> </p>";
         echo "<p> Prénom : <input type='text' name='first_name' value='" .  $data['firstname'] . "' required> </p>";
