@@ -68,6 +68,16 @@ function selectRDV($id){
     return $data;
 }
 
+function selectUserID($name, $date,$nameAnimal){
+    $bdd = connectBDD();
+    $request = $bdd->prepare("SELECT id FROM rendez_vous WHERE name = :name AND date = :date AND name_animal = :name_animal");
+    $data = $request->execute(array(
+        'name' => $name,
+        'date' => $date,
+        'name_animal' => $nameAnimal
+    ));
+    return $data;
+}
 
 
 ?>
