@@ -1,0 +1,32 @@
+.form-classe {
+    width: 50%;
+    margin-left: 25%;
+    position: relative;
+}
+
+.form-classe h1 {
+    text-align: center;
+    font-size: 3em;
+}
+
+.form-classe h2 {
+    width: 100%;
+    text-align: center;
+    font-size: 2em;
+}
+
+.form-classe input {
+    width: 100%;
+    height: 5vh;
+}
+
+.form-classe textarea {
+    width: 100%;
+    height: 10vh;
+}
+
+.form-classe button {
+    margin-top: 5%;
+    width: 100%;
+    height: 10vh;
+}

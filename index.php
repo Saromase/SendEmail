@@ -4,22 +4,29 @@
 <head>
     <title>Prise de rendez-vous</title>
     <meta charset="UTF-8">
-    <link href="main.css" rel="stylesheet">
+    <link href="test.css" rel="stylesheet">
 </head>
 
 <body>
-    <div class="center-RDV">
-        <div class="select-RDV-EDU">
+    <div class="form-classe">
+        <div class="">
             <h1>Prise de rendez-vous</h1>
             <form action="form.php" method="post">
-                <input type="text" name="name" placeholder='Nom' required>
-                <input type="text" name="first_name" placeholder='Prénom' required>
-                <input type="mail" name="mail" placeholder='Adresse Email' required>
-                <input type="date" name="date" placeholder='Date du rendez-vous souhaiter' required>
-                <input type="text" name="animal" placeholder="Espece de l'animal" required>
-                <input type="text" name="name_animal" placeholder="Nom de l'animal" required>
-                <textarea name="message" placeholder='Taper ici votre message' required class="wpcf7-form-control wpcf7-textarea wpcf7-validates-as-required form-control contact-field edu_envoyer"></textarea>
-                <input type="submit" />
+                <label for="name"><h2>Nom</h2> </label>
+                <input type="text" name="name" id="name" required>
+                <label for="first_name"><h2>Prénom</h2> </label>
+                <input type="text" name="first_name" id="first_name" required>
+                <label for="mail"><h2>Adresse Email</h2> </label>
+                <input type="email" name="mail" id="mail" required>
+                <label for="date"> <h2>Date de rendez-vous souhaiter</h2> </label>
+                <input type="date" name="date" id="date" required>
+                <label for="animal"><h2>Espece de l'animal</h2> </label>
+                <input type="text" name="animal" id="animal" required>
+                <label for="name_animal"><h2>Nom de l'animal </h2></label>
+                <input type="text" name="name_animal" id="name_animal" required>
+                <label for="message"><h2>Veuillez entrer ici la raison de votre demande de rendez-vous</h2></label>
+                <textarea name="message" required id="message" class=""></textarea>
+                <button type="submit">Prendre rendez-vous</button>
             </form>
         </div>
 
